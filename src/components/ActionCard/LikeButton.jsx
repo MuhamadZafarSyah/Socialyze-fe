@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React from "react";
 import { toast } from "sonner";
 import { Button } from "../ui/button";
-import { HeartIcon } from "lucide-react";
+import { HeartIcon, Loader2 } from "lucide-react";
 
 const LikeButton = (props) => {
   const queryClient = useQueryClient();
@@ -13,8 +13,8 @@ const LikeButton = (props) => {
     mutationKey: ["like"],
     mutationFn: () => like(props.data.id),
     onSuccess: () => {
-      queryClient.invalidateQueries({ querykey: ["detailPost"] });
       queryClient.invalidateQueries({ querykey: ["allposts"] });
+      queryClient.invalidateQueries({ querykey: ["detailPost"] });
     },
     onError: (error) => {
       const errorMessage = error.response?.data?.message;
@@ -35,8 +35,15 @@ const LikeButton = (props) => {
       onClick={handleToggleLike}
       className={`${isLiked ? "bg-destrucive" : "bg-yellow"} `}
       size="sm"
+      disabled={isLoading}
     >
-      <HeartIcon className="h-4 w-4" />
+      {isLoading ? (
+        <div className="flex items-center gap-2">
+          <Loader2 className="size-4 animate-spin" />
+        </div>
+      ) : (
+        <HeartIcon className="h-4 w-4" />
+      )}
     </Button>
   );
 };

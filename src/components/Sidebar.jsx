@@ -79,7 +79,7 @@ const Sidebar = (props) => {
   };
 
   const SidebarContent = ({ data }) => (
-    <div className="fixed bottom-0 right-0 top-0 flex w-[270px] flex-col gap-1 border-l-2 border-border bg-white p-4">
+    <div className="fixed bottom-0 right-0 top-0 flex w-[270px] flex-col gap-1 overflow-scroll border-l-2 border-border bg-white p-4">
       <SheetHeader>
         <SheetTitle className="flex flex-col text-start text-sm">
           Hello 👋

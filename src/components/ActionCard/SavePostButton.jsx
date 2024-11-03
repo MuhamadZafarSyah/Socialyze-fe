@@ -1,6 +1,6 @@
 import { savePost } from "@/query/savedPost";
 import { Button } from "../ui/button";
-import { Bookmark } from "lucide-react";
+import { Bookmark, Loader2 } from "lucide-react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 
@@ -14,8 +14,8 @@ const SavePostButton = (props) => {
       savePost(props.data.id);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ querykey: ["detailPost"] });
       queryClient.invalidateQueries({ querykey: ["allposts"] });
+      queryClient.invalidateQueries({ querykey: ["detailPost"] });
 
       if (!isSaved) {
         toast.success("Post saved successfully");
@@ -43,8 +43,15 @@ const SavePostButton = (props) => {
       onClick={handleToggleSavePost}
       className={`${isSaved ? "bg-destrucive" : "bg-yellow"} `}
       size="sm"
+      disabled={isLoading}
     >
-      <Bookmark className="h-4 w-4" />
+      {isLoading ? (
+        <div className="flex items-center gap-2">
+          <Loader2 className="size-4 animate-spin" />
+        </div>
+      ) : (
+        <Bookmark className="h-4 w-4" />
+      )}
     </Button>
   );
 };
