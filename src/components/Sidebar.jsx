@@ -120,7 +120,7 @@ const Sidebar = (props) => {
       <SheetTrigger asChild>
         <PanelRightOpen className="cursor-pointer" />
       </SheetTrigger>
-      {window.innerWidth > 768 ? (
+      {window.innerWidth > 1080 ? (
         <SidebarContent data={props.data} />
       ) : (
         <SheetContent className="flex w-[230px] flex-col gap-1 lg:w-[350px]">

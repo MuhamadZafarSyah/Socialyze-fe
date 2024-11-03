@@ -41,7 +41,13 @@ const SearchPage = () => {
       </div>
       <main className="relative mx-auto max-w-screen-sm overflow-hidden overscroll-none">
         <div className="mt-4 flex flex-col gap-3 overflow-hidden overscroll-none px-4">
-          {isSuccess && data.data.length > 0 ? (
+          {isLoading ? (
+            <>
+              <FollowSkeleton />
+              <FollowSkeleton />
+              <FollowSkeleton />
+            </>
+          ) : isSuccess && data.data.length > 0 ? (
             <Command className="w-full overflow-hidden overscroll-none">
               <CommandInput placeholder="Search..." />
               <CommandList>
@@ -60,13 +66,6 @@ const SearchPage = () => {
             <div className="center-center">
               <span>There's no one</span>
             </div>
-          )}
-          {isLoading && (
-            <>
-              <FollowSkeleton />
-              <FollowSkeleton />
-              <FollowSkeleton />
-            </>
           )}
         </div>
       </main>

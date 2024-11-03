@@ -95,10 +95,10 @@ const PostCard = (props) => {
       </div>
 
       <div className="mt-2">
-        <h1 className="text-xs font-semibold">
+        <h1 className="text-sm font-semibold">
           {props.data.profile?.username}
         </h1>
-        <h2 className="text-[10px]">{props.data.caption}</h2>
+        <h2 className="text-[12px]">{props.data.caption}</h2>
       </div>
     </div>
   );
