@@ -25,14 +25,13 @@ const SavedPage = () => {
         </header>
       </div>
 
-      {isLoading && (
+      {isLoading ? (
         <>
           <PostCardSkeleton />
           <PostCardSkeleton />
           <PostCardSkeleton />
         </>
-      )}
-      {isSuccess && data.data.length > 0 ? (
+      ) : isSuccess && data.data.length > 0 ? (
         data.data.map((post) => <PostCard key={post.id} data={post} />)
       ) : (
         <div className="mx-auto flex h-screen items-center justify-center !overflow-hidden">

@@ -39,7 +39,13 @@ const FollowingPage = () => {
       </div>
       <main className="relative mx-auto max-w-screen-sm">
         <div className="mt-4 flex flex-col gap-3 px-4">
-          {isSuccess && data.data.length > 0 ? (
+          {isLoading ? (
+            <>
+              <FollowSkeleton />
+              <FollowSkeleton />
+              <FollowSkeleton />
+            </>
+          ) : isSuccess && data.data.length > 0 ? (
             <Command className="w-full">
               <CommandInput placeholder="Search..." />
               <CommandList>
@@ -56,13 +62,6 @@ const FollowingPage = () => {
             <div className="center-center">
               <span>There's no one</span>
             </div>
-          )}
-          {isLoading && (
-            <>
-              <FollowSkeleton />
-              <FollowSkeleton />
-              <FollowSkeleton />
-            </>
           )}
         </div>
       </main>

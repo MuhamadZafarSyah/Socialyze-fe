@@ -207,12 +207,16 @@ export const EditProfileModal = (props) => {
                 name="username"
                 required
                 className="col-span-3 lowercase"
-                onKeyDown={(e) => {
-                  if (e.key === " ") {
+                /*************  ✨ Codeium Command 🌟  *************/
+                // prevent space and ime mode to insert space and convert to underscore
+                // https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/isComposing
+                onKeyDownCapture={(e) => {
+                  if (e.key === " " || e.nativeEvent.isComposing) {
                     e.preventDefault();
                     e.target.value += "_";
                   }
                 }}
+                /******  90901375-b89b-4548-88ae-52aa06336417  *******/
               />
             </div>
             <div className="grid grid-cols-4 items-center gap-4">

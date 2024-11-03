@@ -199,8 +199,8 @@ const CreateProfilePage = () => {
                 name="username"
                 required
                 className="col-span-3 lowercase"
-                onKeyDown={(e) => {
-                  if (e.key === " ") {
+                onKeyDownCapture={(e) => {
+                  if (e.key === " " || e.nativeEvent.isComposing) {
                     e.preventDefault();
                     e.target.value += "_";
                   }
