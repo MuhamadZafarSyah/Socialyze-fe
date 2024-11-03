@@ -77,7 +77,7 @@ const PostPage = () => {
           <PostCardSkeleton />
         </>
       )}
-      {isSuccess && data.length > 0
+      {isSuccess && data.data.length > 0
         ? data.data.map((post) => <PostCard key={post.id} data={post} />)
         : null}
       <div className="fixed inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#80808045_1px,transparent_1px),linear-gradient(to_bottom,#80808045_1px,transparent_1px)] bg-[size:24px_24px]"></div>
