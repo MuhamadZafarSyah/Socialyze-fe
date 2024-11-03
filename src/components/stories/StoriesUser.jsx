@@ -4,13 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import ReactInstaStories from "react-insta-stories";
 import axiosInstance from "@/apis/axiosInstance";
 import { Skeleton } from "../ui/skeleton";
-
-const LoadingSkeleton = () => (
-  <div className="col-center-center">
-    <Skeleton className="size-11 rounded-full" />
-    <Skeleton className="mt-2 h-3 w-[50px]" />
-  </div>
-);
+import SkeletonStories from "./SkeletonStories";
 
 const UserAvatar = ({ avatar, username, onClick }) => (
   <Avatar
@@ -81,7 +75,7 @@ const StoriesUser = ({ data: { username, avatar } }) => {
   });
 
   if (isLoading) {
-    return <LoadingSkeleton />;
+    return <SkeletonStories />;
   }
 
   return (

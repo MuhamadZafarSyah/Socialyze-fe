@@ -7,6 +7,7 @@ import PostCardSkeleton from "@/components/post/PostCardSkeleton";
 import StoriesUser from "@/components/stories/StoriesUser";
 import axiosInstance from "@/apis/axiosInstance";
 import { Skeleton } from "@/components/ui/skeleton";
+import SkeletonStories from "@/components/stories/SkeletonStories";
 
 const PostPage = () => {
   const { isLoading, error, data, isSuccess } = useQuery({
@@ -48,18 +49,11 @@ const PostPage = () => {
         <div className="flex w-max flex-row gap-4 p-2">
           {isLoadingStories && (
             <div className="flex-rol flex items-center justify-center gap-6">
-              <div className="col-center-center">
-                <Skeleton className="size-11 rounded-full" />
-                <Skeleton className="mt-2 h-3 w-[50px]" />
-              </div>
-              <div className="col-center-center">
-                <Skeleton className="size-11 rounded-full" />
-                <Skeleton className="mt-2 h-3 w-[50px]" />
-              </div>
-              <div className="col-center-center">
-                <Skeleton className="size-11 rounded-full" />
-                <Skeleton className="mt-2 h-3 w-[50px]" />
-              </div>
+              <SkeletonStories />
+              <SkeletonStories />
+              <SkeletonStories />
+              <SkeletonStories />
+              <SkeletonStories />
             </div>
           )}
           {isSuccessStories && dataStories

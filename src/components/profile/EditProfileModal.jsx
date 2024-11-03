@@ -242,7 +242,7 @@ export const EditProfileModal = (props) => {
                   <SelectGroup>
                     <SelectItem value="Atlet">Atlet</SelectItem>
                     <SelectItem value="Programmer">Programmer</SelectItem>
-                    <SelectItem value="Anthusias">Anthusias</SelectItem>
+                    <SelectItem value="Enthusiast">Enthusiast</SelectItem>
                     <SelectItem value="Desainer">Desainer</SelectItem>
                     <SelectItem value="Gamer">Gamer</SelectItem>
                   </SelectGroup>

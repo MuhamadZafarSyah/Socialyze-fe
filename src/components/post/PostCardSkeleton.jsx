@@ -10,7 +10,7 @@ const PostCardSkeleton = () => {
           <Skeleton className="h-4 w-[100px]" />
         </div>
       </div>
-      <Skeleton className="mx-auto mt-2 size-[20rem] lg:size-80" />
+      <Skeleton className="mx-auto mt-2 size-[20rem] lg:size-96" />
       <div className="mt-4">
         <Skeleton className="h-4 w-[40px]" />
         <Skeleton className="mt-4 h-4 w-[100px]" />

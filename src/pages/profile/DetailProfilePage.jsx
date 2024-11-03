@@ -9,7 +9,7 @@ import {
   Camera,
   CircleFadingPlus,
   LinkIcon,
-  Loader,
+  Loader2,
   Plus,
 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -43,7 +43,7 @@ const DetailProfilePage = () => {
     <>
       {isLoading && (
         <div className="flex h-screen w-full items-center justify-center">
-          <Loader className="size-12 animate-spin" color="blue" />
+          <Loader2 className="size-12 animate-spin" color="blue" />
         </div>
       )}
       {isSuccess && data && (
