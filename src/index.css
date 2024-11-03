@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .center_center {
+    @apply flex items-center justify-center;
+  }
+  .between-center {
+    @apply flex items-center justify-between;
+  }
+  .col-center-center {
+    @apply flex flex-col items-center justify-center;
+  }
+  * {
+    font-family: "DM Sans", sans-serif;
+  }
+  .no-style {
+    border-style: hidden;
+  }
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
