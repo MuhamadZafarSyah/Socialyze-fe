@@ -20,7 +20,7 @@ import {
 } from "react-share";
 import { toast } from "sonner";
 const ShareDrawer = (props) => {
-  const shareUrl = `https://socialyze-be.vercel.app/detail-post/${props.data.profile.username}/#${props.data.id}`;
+  const shareUrl = `https://socialyzze.vercel.app/detail-post/${props.data.profile.username}/#${props.data.id}`;
 
   function handleCopy() {
     toast.success("Copy to clipboard");
