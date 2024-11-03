@@ -200,10 +200,13 @@ const CreateProfilePage = () => {
                 required
                 className="col-span-3 lowercase"
                 onKeyDownCapture={(e) => {
-                  if (e.key === " " || e.nativeEvent.isComposing) {
+                  if (e.key === " " || e.code === "Space") {
                     e.preventDefault();
                     e.target.value += "_";
                   }
+                }}
+                onInput={(e) => {
+                  e.target.value = e.target.value.replace(/ /g, "_");
                 }}
                 autoComplete="username"
               />
