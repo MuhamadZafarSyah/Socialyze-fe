@@ -33,7 +33,7 @@ const Sidebar = (props) => {
     },
     {
       path: "/search",
-      name: "Search Profile",
+      name: "Search Users",
       icon: Search,
     },
     {

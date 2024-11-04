@@ -3,16 +3,22 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React from "react";
 import { toast } from "sonner";
 import { Button } from "../ui/button";
-import { HeartIcon, Loader2 } from "lucide-react";
+import { HeartIcon } from "lucide-react";
+import { useDispatch } from "react-redux";
 
 const LikeButton = (props) => {
+  const dispatch = useDispatch();
   const queryClient = useQueryClient();
-  const isLiked = props.data.isLiked;
 
-  const { mutateAsync: toggleLike, isLoading } = useMutation({
+  const {
+    mutateAsync: toggleLike,
+    isLoading,
+    data,
+    isSuccess,
+  } = useMutation({
     mutationKey: ["like"],
     mutationFn: () => like(props.data.id),
-    onSuccess: () => {
+    onSuccess: (response) => {
       queryClient.invalidateQueries({ querykey: ["allposts"] });
       queryClient.invalidateQueries({ querykey: ["detailPost"] });
     },
@@ -33,17 +39,11 @@ const LikeButton = (props) => {
   return (
     <Button
       onClick={handleToggleLike}
-      className={`${isLiked ? "bg-destrucive" : "bg-yellow"} `}
       size="sm"
       disabled={isLoading}
+      className={`${isSuccess && data ? "bg-destrucive" : "bg-yellow"} `}
     >
-      {isLoading ? (
-        <div className="flex items-center gap-2">
-          <Loader2 className="size-4 animate-spin" />
-        </div>
-      ) : (
-        <HeartIcon className="h-4 w-4" />
-      )}
+      <HeartIcon className="h-4 w-4" />
     </Button>
   );
 };

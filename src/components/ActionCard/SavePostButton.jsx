@@ -6,9 +6,8 @@ import { toast } from "sonner";
 
 const SavePostButton = (props) => {
   const queryClient = useQueryClient();
-  const isSaved = props.data.isSaved;
 
-  const { mutateAsync, isLoading } = useMutation({
+  const { mutateAsync, isLoading, data, isSuccess } = useMutation({
     mutationKey: ["savePost"],
     mutationFn: () => {
       savePost(props.data.id);
@@ -41,7 +40,7 @@ const SavePostButton = (props) => {
   return (
     <Button
       onClick={handleToggleSavePost}
-      className={`${isSaved ? "bg-destrucive" : "bg-yellow"} `}
+      className={`${isSuccess && data ? "bg-destrucive" : "bg-yellow"} `}
       size="sm"
       disabled={isLoading}
     >
