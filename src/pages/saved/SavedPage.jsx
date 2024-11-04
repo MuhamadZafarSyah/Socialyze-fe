@@ -12,6 +12,8 @@ const SavedPage = () => {
     queryFn: getSavePost,
   });
 
+  console.log(data);
+
   const getUserLogin = useSelector((state) => state.authState.user);
 
   return (

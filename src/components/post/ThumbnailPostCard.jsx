@@ -15,7 +15,7 @@ const ThumbnailPostCard = (props) => {
         )}
         <img
           src={props.data.postImage || noImg}
-          alt={props.data.caption}
+          alt="Thumbnail Post"
           className={`relative aspect-square size-full overflow-hidden rounded-lg border-2 border-border object-cover ${loading ? "hidden" : "block"}`}
           onLoad={() => setLoading(false)}
         />

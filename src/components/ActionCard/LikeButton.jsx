@@ -7,7 +7,6 @@ import { HeartIcon } from "lucide-react";
 import { useDispatch } from "react-redux";
 
 const LikeButton = (props) => {
-  const dispatch = useDispatch();
   const queryClient = useQueryClient();
 
   const {
@@ -19,6 +18,7 @@ const LikeButton = (props) => {
     mutationKey: ["like"],
     mutationFn: () => like(props.data.id),
     onSuccess: (response) => {
+      console.log(response);
       queryClient.invalidateQueries({ querykey: ["allposts"] });
       queryClient.invalidateQueries({ querykey: ["detailPost"] });
     },
