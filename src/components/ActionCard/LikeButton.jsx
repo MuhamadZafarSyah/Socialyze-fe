@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 
 const LikeButton = (props) => {
   const queryClient = useQueryClient();
+  const isLiked = props.data.isLiked;
 
   const {
     mutateAsync: toggleLike,
@@ -18,7 +19,6 @@ const LikeButton = (props) => {
     mutationKey: ["like"],
     mutationFn: () => like(props.data.id),
     onSuccess: (response) => {
-      console.log(response);
       queryClient.invalidateQueries({ querykey: ["allposts"] });
       queryClient.invalidateQueries({ querykey: ["detailPost"] });
     },
@@ -41,7 +41,7 @@ const LikeButton = (props) => {
       onClick={handleToggleLike}
       size="sm"
       disabled={isLoading}
-      className={`${isSuccess && data ? "bg-destrucive" : "bg-yellow"} `}
+      className={`${isLiked ? "bg-destrucive" : "bg-yellow"} `}
     >
       <HeartIcon className="h-4 w-4" />
     </Button>
