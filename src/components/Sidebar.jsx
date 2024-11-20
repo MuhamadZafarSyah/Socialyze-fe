@@ -118,7 +118,7 @@ const Sidebar = (props) => {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <PanelRightOpen className="cursor-pointer" />
+        <PanelRightOpen className={`cursor-pointer ${props.className}`} />
       </SheetTrigger>
       {window.innerWidth > 1080 ? (
         <SidebarContent data={props.data} />

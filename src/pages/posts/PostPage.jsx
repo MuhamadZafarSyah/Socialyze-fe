@@ -6,8 +6,8 @@ import Sidebar from "@/components/Sidebar";
 import PostCardSkeleton from "@/components/post/PostCardSkeleton";
 import StoriesUser from "@/components/stories/StoriesUser";
 import axiosInstance from "@/apis/axiosInstance";
-import { Skeleton } from "@/components/ui/skeleton";
 import SkeletonStories from "@/components/stories/SkeletonStories";
+import logoWithText from "/logo_horizontal.png";
 
 const PostPage = () => {
   const { isLoading, error, data, isSuccess } = useQuery({
@@ -39,9 +39,13 @@ const PostPage = () => {
       <div className="sticky top-0 z-20 mx-auto w-full border-b-2 border-border bg-white">
         <header className="top-0 mx-auto flex h-fit max-w-screen-lg items-center justify-between bg-white pr-4">
           <div className="flex items-center gap-2 p-4">
-            <span className="text-lg font-semibold">Socialyze</span>
+            <img
+              className="size-2/6 overflow-hidden object-cover"
+              src={logoWithText}
+              alt="Socialyze Logo"
+            />
           </div>
-          <Sidebar data={getUsernameLogin} />
+          <Sidebar className="size-9" data={getUsernameLogin} />
         </header>
       </div>
 
