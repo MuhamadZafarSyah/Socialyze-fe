@@ -59,7 +59,7 @@ const LoginPage = () => {
       <form onSubmit={handleSubmit} className="z-10" method="post">
         <Card className="z-10 w-[330px]">
           <CardHeader>
-            <CardTitle>Welcome Back 👋</CardTitle>
+            <CardTitle>Welcome Back Zafar Ganteng👋</CardTitle>
             <CardDescription>
               Please enter your details to sign in.
             </CardDescription>
